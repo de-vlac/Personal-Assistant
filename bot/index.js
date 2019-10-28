@@ -36,6 +36,21 @@ client.on('message', async message => {
 	} else if (message.content.startsWith(`${prefix}stop`)) {
 		stop(message, serverQueue);
 		return;
+	} else if (message.content.startsWith(`${prefix}hi`)) {
+		message.channel.send('Hello!')
+		return;
+	} else if (message.content.startsWith(`${prefix}bye`)) {
+		message.channel.send('Bye ! :\'( ');
+		process.exit();
+	} else if (message.content.startsWith(`${prefix}kick`)) {
+		kick(message);
+		return;
+	} else if (message.content.startsWith(`${prefix}ban`)) {
+		ban(message);
+		return;
+	} else if (message.content.startsWith(`${prefix}role`)) {
+		addUserRole(message);
+		return;
 	} else {
 		message.channel.send('You need to enter a valid command!')
 	}
@@ -120,5 +135,47 @@ function play(guild, song) {
 		});
 	dispatcher.setVolumeLogarithmic(serverQueue.volume / 5);
 }
+
+async function kick(message){
+
+	const user = message.mentions.users.first(); //on récupere le premier utilisateur mentionné dans le message
+		if (!user){ //si il n'y a eu aucune mention
+			return message.channel.send('You have to say it this way : \'!kick @user\' else i won\'t understand you, got it?');
+		}
+		if(user === message.author) return message.channel.send('Don\'t kick yourself bro :( ');
+		message.guild.member(user).kick().then((user)=> {
+			message.channel.send('I hate my work, today i had to kick ' +user+ ', I\'m so sad.');
+		}).catch(()=> {
+			message.channel.send('You can\'t kick this guy he is stronger than you <:GWvertiPeepoSadMan:405951684339302400> ');
+		});
+		
+
+}
+
+async function ban(message) {
+	const user = message.mentions.users.first(); //on récupere le premier utilisateur mentionné dans le message
+		if (!user){ //si il n'y a eu aucune mention
+			return message.channel.send('You have to say it this way : \'!ban @user\' else i won\'t understand you, got it?');
+		}
+		if(user === message.author) return message.channel.send('Don\'t ban yourself bro :( ');
+		if(!message.guild.member(user).bannable) return message.channel.send('I can\'t ban this guy he is my boss <:GWvertiPeepoSadMan:405951684339302400> ');
+		await message.guild.ban(user)
+			
+		return message.channel.send('I hate my work, today i had to ban ' +user+ ', I\'m so sad.');
+	
+	return;
+}
+
+function addUserRole(message) {
+	const args = message.content.split(' ');
+	var role = message.guild.roles.find( 'name' , args[1]);
+	if(!role){
+		return message.channel.send('Sorry I can\'t find this role.');
+	}
+	message.member.addRole(role.id);
+	
+}
+
+
 
 client.login(token);
