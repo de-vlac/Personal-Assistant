@@ -173,6 +173,7 @@ function addUserRole(message) {
 		return message.channel.send('Sorry I can\'t find this role.');
 	}
 	message.member.addRole(role.id);
+	return message.channel.send('Job done sir.');
 	
 }
 
