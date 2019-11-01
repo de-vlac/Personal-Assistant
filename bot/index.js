@@ -52,7 +52,7 @@ client.on('message', async message => {
 		addUserRole(message);
 		return;
 	} else {
-		message.channel.send('You need to enter a valid command!')
+		message.channel.send('I don\'t understand sir! Say something I know I promise I will do good.')
 	}
 });
 
