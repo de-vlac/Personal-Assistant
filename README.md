@@ -5,6 +5,8 @@
 
 # Commandes
 
+**!help** pour obtenir la liste des commandes
+
 **!hi** permet de vérifier si le bot est en ligne
 
 **!role [role_choisi]** pour s'ajouter un role
