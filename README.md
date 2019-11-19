@@ -9,6 +9,8 @@
 
 **!hi** permet de vérifier si le bot est en ligne
 
+**!dm** pour envoyer un message privé à un membre du serveur, une copie est envoyée au commanditaire
+
 **!role [role_choisi]** pour s'ajouter un role
 
 **!bye** pour arrêter le bot
