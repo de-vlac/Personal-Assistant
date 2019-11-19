@@ -8,6 +8,7 @@ module.exports = {
 			return message.channel.send('Sorry I can\'t find this role.');
 		}
 		message.member.addRole(role.id);
+		message.delete();
 		return message.channel.send('Job done sir.');
  },
 };
