@@ -4,7 +4,9 @@ const Client = require('./client/Client');
 const {
 	prefix,
 	token,
+	forbiddenwords,
 } = require('./config.json');
+
 
 const client = new Client();
 client.commands = new Discord.Collection();
@@ -38,6 +40,12 @@ client.on('message', async message => {
 	const command = client.commands.get(commandName);
 
 	if (message.author.bot) return;
+	for (var i in forbiddenwords){
+	  if (message.content.toLowerCase().includes(forbiddenwords[i])) {
+		message.delete();
+		return message.reply('don\'t use such words');
+	  }
+	}
 	if (!message.content.startsWith(prefix)) return;
 
 	try {
