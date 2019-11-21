@@ -1,0 +1,5 @@
+{
+"admin": ["Dictator", "Staline","Admins"],
+"moderator": ["Modo", "Green","Moderator"],
+"normaluser": ["Blue"]
+}
