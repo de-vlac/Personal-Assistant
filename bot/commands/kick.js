@@ -11,6 +11,10 @@ module.exports = {
 			return message.reply('You have to say it this way : \'!kick @user\' else i won\'t understand you, got it?');
 		}
 
+		if (!message.member.hasPermission("KICK_MEMBERS")) {
+			return message.reply('You don\'t have permission to do this now do you ? ');
+		}
+
 		if (!member.kickable) {
 			return message.reply('You can\'t kick this guy he is stronger than you <:GWvertiPeepoSadMan:405951684339302400>');
 		}

@@ -12,8 +12,8 @@ module.exports = {
 			return message.reply('You have to say it this way : \'!ban @user\' else i won\'t understand you, got it?');
 		}
 
-		if (!message.member.hasPermission("MANAGE\_MEMBERS")) {
-			return message.reply('I can\'t ban this guy he is my boss <:GWvertiPeepoSadMan:405951684339302400> ');
+		if (!message.member.hasPermission("BAN_MEMBERS")) {
+			return message.reply('You don\'t have permission to do this now do you ? ');
 		}
 
 		return member
