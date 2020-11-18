@@ -5,6 +5,7 @@ const {
 	prefix,
 	token,
 	forbiddenwords,
+	yToken
 } = require('./config.json');
 
 
