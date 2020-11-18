@@ -1,5 +1,6 @@
 {
 "prefix": "!",
 "token": "a changer à la volée",
-"forbiddenwords": ["syphillis", "macbeth","malédiction"]
+"forbiddenwords": ["syphillis", "macbeth","malédiction"],
+"yToken" : "a changer à la volée"
 }
