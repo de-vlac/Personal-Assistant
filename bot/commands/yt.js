@@ -1,6 +1,6 @@
 const YouTube = require ('simple-youtube-api');
 
-const search = new YouTube('yToken');
+const search = new YouTube(yToken);
 
 module.exports = {
 	name: 'yt',
